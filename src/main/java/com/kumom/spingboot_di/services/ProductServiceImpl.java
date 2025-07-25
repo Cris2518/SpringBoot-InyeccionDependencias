@@ -3,7 +3,7 @@ package com.kumom.spingboot_di.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.kumom.spingboot_di.models.Product;
@@ -14,7 +14,7 @@ public class ProductServiceImpl implements ProductService {
 
     private ProductRepository repository;
 
-    public ProductServiceImpl(ProductRepository repository) {
+    public ProductServiceImpl(@Qualifier("productFoo") ProductRepository repository) {
         this.repository = repository;
     }
 
