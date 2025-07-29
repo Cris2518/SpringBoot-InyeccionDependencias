@@ -1,0 +1,9 @@
+[
+  { "id": 1, "name": "Memoria corsair 32gb", "price": 168 },
+  { "id": 2, "name": "CPU Intel Core I5", "price": 1062 },
+  { "id": 3, "name": "Teclado Razer Mini", "price": 195 },
+  { "id": 4, "name": "MotherBoard", "price": 700 },
+  { "id": 5, "name": "Xbox Series S", "price": 700 },
+  { "id": 6, "name": "Abrigo", "price": 40 },
+  { "id": 7, "name": "PlayStation", "price": 800 }
+] 

@@ -18,7 +18,7 @@ public class ProductServiceImpl implements ProductService {
     @Value("${config.price.tax}")
     private Double Tax;
 
-    public ProductServiceImpl(@Qualifier("productList") ProductRepository repository) {
+    public ProductServiceImpl(@Qualifier("productJson") ProductRepository repository) {
         this.repository = repository;
     }
 
