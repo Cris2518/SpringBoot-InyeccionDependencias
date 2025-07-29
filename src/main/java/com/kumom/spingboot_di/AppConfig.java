@@ -11,8 +11,11 @@ import com.kumom.spingboot_di.repositories.ProductRepositoryJson;
 @PropertySource("classpath:config.properties")
 public class AppConfig {
 
+    // @Value("classpath:json/product.json")
+    // private Resource resource;
+
     @Bean("productJson")
-    ProductRepository productRepositoryJson(){
+    ProductRepository productRepositoryJson() {
         return new ProductRepositoryJson();
     }
 }
