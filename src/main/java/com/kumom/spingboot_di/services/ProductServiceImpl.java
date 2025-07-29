@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.kumom.spingboot_di.models.Product;
@@ -14,7 +15,10 @@ public class ProductServiceImpl implements ProductService {
 
     private ProductRepository repository;
 
-    public ProductServiceImpl(@Qualifier("productFoo") ProductRepository repository) {
+    @Value("${config.price.tax}")
+    private Double Tax;
+
+    public ProductServiceImpl(@Qualifier("productList") ProductRepository repository) {
         this.repository = repository;
     }
 
@@ -27,13 +31,16 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> findAllAddImp(){
         return repository.findAll().stream().map(t -> {
           
-            Double priceTax = t.getPrice() * 1.25d;
+            Double priceTax = t.getPrice() * Tax;
 
             // Product newProduct = new Product(t.getId(), t.getName(), priceTax.longValue());
             
             Product newProduct = (Product) t.clone();
             newProduct.setPrice(priceTax.longValue());
             return newProduct;
+
+            // t.setPrice(priceTax.longValue());
+            // return t;
 
         }).collect(Collectors.toList());
     }
